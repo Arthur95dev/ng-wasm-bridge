@@ -42,12 +42,7 @@ EMSCRIPTEN_BINDINGS(sum_module) {
 Сборка:
 
 ```bash
-emcc sum.cpp -o sum.js \
-  -s MODULARIZE=1 \
-  -s EXPORT_NAME="SumModule" \
-  -s ENVIRONMENT='web' \
-  -s ALLOW_MEMORY_GROWTH=1 \
-  -O3 -lembind -std=c++17
+emcc sum.cpp -o sum.js -s MODULARIZE=1 -s EXPORT_ES6=1 -s ENVIRONMENT='web' -s ALLOW_MEMORY_GROWTH=1 -O3 -lembind -std=c++17
 ```
 
 Поместите `sum.js` и `sum.wasm` в `src/assets/wasm`.
