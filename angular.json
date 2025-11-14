@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ng-wasm-bridge": {
+      "projectType": "library",
+      "root": "projects/ng-wasm-bridge",
+      "sourceRoot": "projects/ng-wasm-bridge/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-wasm-bridge/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-wasm-bridge/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/ng-wasm-bridge/tsconfig.spec.json"
+          }
+        }
+      }
+    }
+  }
+}
