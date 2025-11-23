@@ -1,4 +1,4 @@
-import {VectorInstanceCpp} from './vector-instance.interface';
+import { VectorInstanceCpp } from './vector-instance.interface';
 
 export interface ArraySortModule {
   VectorInt: {
