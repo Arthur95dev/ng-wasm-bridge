@@ -22,6 +22,14 @@ export class WasmService {
     return promiseModule as Promise<TypedModule<T>>;
   }
 
+  /**
+   * Получает модуль по имени
+   * @param path Путь к файлу модуля
+   */
+  getModule<T>(path: string): TypedModule<T> | null {
+    return (this.modules.get(path) as TypedModule<T>) || null;
+  }
+
   private async load<T>(path: string): Promise<TypedModule<T>> {
     const factoryModule = await import(/* @vite-ignore */ path);
     const factory = factoryModule.default;
@@ -30,14 +38,5 @@ export class WasmService {
     this.modules.set(path, module);
     this.modulesPromises.delete(path);
     return module;
-  }
-
-
-  /**
-   * Получает модуль по имени
-   * @param path Путь к файлу модуля
-   */
-  getModule<T>(path: string): TypedModule<T> | null {
-    return (this.modules.get(path) as TypedModule<T>) || null;
   }
 }
