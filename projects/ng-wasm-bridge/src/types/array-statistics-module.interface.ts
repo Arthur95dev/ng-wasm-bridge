@@ -1,9 +1,4 @@
-export interface VectorInstanceCpp {
-  push_back(value: number): void;
-  size(): number;
-  get(index: number): number;
-  delete(): void;
-}
+import { VectorInstanceCpp } from './vector-instance.interface';
 
 export interface ArrayStatisticsModule {
   VectorInt: {
